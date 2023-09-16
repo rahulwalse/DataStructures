@@ -1,8 +1,5 @@
-/*
-    C program to perform binary arithmetic (add, subtract and multiply) on
-    strings of 1s and 0s.
-
-*/
+//  This C program is an implementation of exercise 1.1.5 to perform binary arithmetic 
+//  operations (add, subtract and multiply) on strings of 1s and 0s.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,7 +40,7 @@ int main()
 char* add(char* first_number, char* second_number)
 {
     char carry = ZERO;
-    char binary_digit = ZERO;
+    char summed_binary_digit = ZERO;
     char* result = (char*)malloc(SIZE * sizeof(char));
 
     // Start adding from right most digit (LSB)
@@ -51,20 +48,20 @@ char* add(char* first_number, char* second_number)
     {
         if(first_number[index] == ZERO && second_number[index] == ZERO)
         {
-            binary_digit = carry;
+            summed_binary_digit = carry;
             carry = ZERO;
-            result[index] = binary_digit;
+            result[index] = summed_binary_digit;
         }
         else if(first_number[index] == ONE && second_number[index] == ONE)
         {
-            binary_digit = carry;
+            summed_binary_digit = carry;
             carry = ONE;
-            result[index] = binary_digit;
+            result[index] = summed_binary_digit;
         }
         else
         {
-            binary_digit = carry == ZERO ? ONE : ZERO;
-            result[index] = binary_digit;
+            summed_binary_digit = carry == ZERO ? ONE : ZERO;
+            result[index] = summed_binary_digit;
         }
 
     }

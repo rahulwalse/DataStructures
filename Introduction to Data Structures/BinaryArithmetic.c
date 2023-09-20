@@ -41,10 +41,11 @@ char* add(char* first_number, char* second_number)
 {
     char carry = ZERO;
     char summed_binary_digit = ZERO;
-    char* result = (char*)malloc(SIZE * sizeof(char));
+    int size = strlen(first_number);
+    char* result = (char*)malloc((size * sizeof(char)) + 1);
 
     // Start adding from right most digit (LSB)
-    for(int index = SIZE - 2; index >= 0; index--)
+    for(int index = size - 1; index >= 0; index--)
     {
         if(first_number[index] == ZERO && second_number[index] == ZERO)
         {
@@ -65,7 +66,7 @@ char* add(char* first_number, char* second_number)
         }
 
     }
-    result[SIZE - 1] = '\0';    // Append with NULL character
+    result[size] = '\0';    // Append with NULL character
 
     // Add the carry for MSB and resize the result string
     if(carry == ONE)
@@ -75,16 +76,16 @@ char* add(char* first_number, char* second_number)
 }
 
 // Method to resize the string in case of a carry generated for MSB
-char* resize(char* result)
+char* resize(char* original_result)
 {
-    int original_size = strlen(result);
+    int original_size = strlen(original_result);
     char* new_result = (char*)malloc(original_size + 1);
     new_result[0] = ONE;
-    strcpy(new_result + 1, result);
+    strcpy(new_result + 1, original_result);
 
     // Release the memory for original result
-    if(result != NULL)
-        free(result);
+    if(original_result != NULL)
+        free(original_result);
 
     return new_result;
 }

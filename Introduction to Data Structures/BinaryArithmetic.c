@@ -1,5 +1,7 @@
 //  This C program is an implementation of exercise 1.1.5 to perform binary arithmetic 
 //  operations (add, subtract and multiply) on strings of 1s and 0s.
+//
+//  NOTE: The subtract and multiply operations are not implemented.
 
 #include <stdio.h>
 #include <stdlib.h>

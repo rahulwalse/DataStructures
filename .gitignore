@@ -1,0 +1,24 @@
+# .gitignore
+
+# Directories
+.vscode/
+
+# Files in sub directories
+.*/*.exe
+.*/*.obj
+.*/*.pdb
+
+# Files
+*.exe
+*.obj
+*.pdb
+
+# Source code files
+EuclidAlgo.cpp
+FixedStack.cpp
+Median.cpp
+Mode.cpp
+Rational.cpp
+Rational.h
+ValidExpression.cpp
+VectorOfObjects.cpp
